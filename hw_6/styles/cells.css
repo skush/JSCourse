@@ -1,0 +1,9 @@
+table tr td {
+	width:40px;
+	height:15px;
+	border:1px solid grey;
+}
+
+.selected-cell {
+	border:1px solid red;
+}

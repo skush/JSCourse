@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Course - home work 5 - cells</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="styles/cells.css">
+</head>
+<body>
+	<table>
+		<thead>
+			
+		</thead>
+		<tbody>
+			<tr>
+				<td class="selected-cell"></td><td></td><td></td><td></td>
+			</tr>
+			<tr>
+				<td></td><td></td><td></td><td></td>
+			</tr>
+			<tr>
+				<td></td><td></td><td></td><td></td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript">
+		var allTables = document.getElementsByTagName("table");
+		for (var i=0, max=allTables.length; i < max; i++) {
+			allTables[i].onclick = function(el, ev) { cellClick(el); }
+		}
+
+		function cellClick(el) {
+			replaceCSSClass("selected-cell", "");
+			el.className = "selected-cell";
+		}
+
+		function findSelected() {
+			var elems = document.getElementsByTagName('*'), i; //TODO: use childNodes instead
+			for (i in elems) {
+				if((elems[i].className).indexOf("selected-cell") > -1) {
+					return elems[i];
+				}
+			}
+		}
+
+		function replaceCSSClass(matchClass, newClass) {
+			var elems = document.getElementsByTagName('*'), i; //TODO: use childNodes instead
+			for (i in elems) {
+				if((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ') > -1) {
+					elems[i].className = newClass;
+					//elems[i].innerHTML = content;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
